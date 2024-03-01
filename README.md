@@ -8,7 +8,7 @@
 - Take backups
 - Set static IP, gateway, and DNS server in `/etc/netplan/*.yaml`
 
-###s Static IP
+### Static IP
 If you don't have `Network Manager` installed, delete the renderer line from the .yaml file!
 
 `/etc/netplan/00-installer-all.yaml`
