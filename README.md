@@ -1,2 +1,1 @@
 # BYU-NCAE1
-BYU NCAE Team 1
