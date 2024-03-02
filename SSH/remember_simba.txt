@@ -15,7 +15,7 @@ ssh -i /path/of/privatekey blueteam@ip
 nano /etc/ssh/sshd_config
 
 # Within this file, set password authentication to 
-sudo nano /etc/ssh/sshd_config.d/50-cloud-init.conf
+nano /etc/ssh/sshd_config.d/50-cloud-init.conf
 
 # Refresh ssh or your hard work will be for nothing!
-sudo systemctl reload ssh
+systemctl reload ssh
