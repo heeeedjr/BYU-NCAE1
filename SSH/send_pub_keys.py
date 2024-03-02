@@ -1,6 +1,5 @@
 import paramiko
 import os
-from dotenv import load_dotenv
 from typing import Generator
 from contextlib import contextmanager
 
@@ -9,13 +8,6 @@ class UnexpectedRemoteHostError(Exception):
     def __init__(self, message):
         super().__init__(message)
         self.message = message
-
-class UsefulStrings():
-    """Grabs passwords from the env file, avoiding global variables"""    
-    def __init__(self) -> None:
-        load_dotenv()
-        self.strongPassword1 = os.getenv('STRONG_PASSWORD_1')
-        self.strongPassword2 = os.getenv('STRONG_PASSWORD_2')
 
 @contextmanager
 def ssh_connection(host_ip:str, username:str, password:str=None, path_to_priv_key:str=None) -> Generator[paramiko.SSHClient, None, None]:
@@ -153,7 +145,7 @@ def add_user_if_necessary(ssh:paramiko.SSHClient, user_to_add:str, sudo_password
     
 def reset_user_password(ssh:paramiko.SSHClient, user:str, sudo_password:str):
     command = f'passwd {user}'
-    new_password = UsefulStrings().strongPassword1
+    new_password = 'asdfghjklgredvhjikmnbvfredcvbhjiolmnedxcguiopoiuyte34567uhbnjkuhgfdrtyhbnjhgvcfdrtyhbvcvbnhgfgh'
     output, errors = execute_privileged_command(ssh, command, sudo_password, [new_password, new_password])
     if 'updated successfully' not in errors:
         raise UnexpectedRemoteHostError(errors)
