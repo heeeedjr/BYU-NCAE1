@@ -44,21 +44,21 @@ OR
 Add zones into: `/etc/bind/named.conf.default-zones` or `/etc/bind/named.conf.local`
 ``` bash
 # looks up ip address for subdomains on ncaecybergames.org
-zone "ncaecybergames.org = forward" IN {
+zone "ncaecybergames.org" IN {
 	type master;
 	file "/etc/bind/zones/forward.ncaecybergames.org"
 	allow-update { none; };
 };
 
 # looks up the domain name for things on the 192.168.1.0/24 network
-zone "1.168.192.in-addr.arpa = reverse" IN {
+zone "1.168.192.in-addr.arpa" IN {
 	type master;
 	file "/etc/bind/zones/reverse.ncaecybergames.org"
 	allow-update { none; };
 };
 
 # looks up the domain name for things on the 172.10.0.0/16 network
-zone "20.172.in-addr.arpa = reverse" IN {
+zone "20.172.in-addr.arpa" IN {
 	type master;
 	file "/etc/bind/zones/reverse.ncaecybergames.org"
 	allow-update { none; };
