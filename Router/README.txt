@@ -1,6 +1,7 @@
 config file location: /etc/sysconfig/network-scripts
 
 You may have to create new config files for the interfaces you're provided. Here's a general template:
+Create files in format ifcfg-<interface>
 
 TYPE=Ethernet
 PROXY_METHOD=none
