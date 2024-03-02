@@ -10,6 +10,7 @@ BROWSER_ONLY=no
 BOOTPROTO=static
 DEFROUTE=yes
 IPV4_FAILURE_FATAL=no
+IPV4_FORWARDING=yes #alex added this after figuring out the problem friday night
 IPV6INIT=yes
 IPV6_AUTOCONF=yes
 IPV6_FAILURE_FATAL=no
@@ -50,6 +51,7 @@ network:
 then set up a gateway in the kali box to the scoring box, wait for firewall to finish setup, then try and ping scoring box. if you can, you can get points. if you can't, fix it.
 
 ### IP forwarding
+I adjusted your template to include `IPV4_FORWARDING=yes`. If that doesn't work, then create this file with the following content
 `/etc/sysctl.d/ip_forward.conf`:
 ```
 net.ipv4.ip_forward=1
