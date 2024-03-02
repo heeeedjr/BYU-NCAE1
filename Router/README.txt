@@ -44,3 +44,9 @@ network:
   version: 2
 
 then set up a gateway in the kali box to the scoring box, wait for firewall to finish setup, then try and ping scoring box. if you can, you can get points. if you can't, fix it.
+
+### IP forwarding
+`/etc/sysctl.d/ip_forward.conf`:
+```
+net.ipv4.ip_forward=1
+```
