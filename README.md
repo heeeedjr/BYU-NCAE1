@@ -15,24 +15,16 @@ If you don't have `Network Manager` installed, delete the renderer line from the
 ``` yaml
 network:
   version: 2
-  renderer: NetworkManager
+  renderer: NetworkManager <<< this line can get deleted if it causes problems
   ethernets:
     #interface name (Ex: ens18)
       addresses:
-        - #ip address with CIDR (Ex: 192.168.<team>.<server>)
-      nameservers:
-        addresses:
-          - #ip address (Ex: 192.168.<team>.<dns_server>)
+        - #ip address with CIDR (Ex: 192.168.<team>.<server>/24)
       dhcp4: false
-      gateway4: <internal router ip>
+      gateway4: #internal router IP (Ex: 192.168.1.1)
 ```
 
 Apply Command:
 `sudo netplan apply`
 
-
-Check to make sure our DNS server shows up here:
-`/etc/resolv.conf`
-``` bash
-nameserver # ip of nameserver
-```
+Use `ip r | grep default`, if you see the IP address you set for your gateway in your YAML file you are good to go!!
